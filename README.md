@@ -16,3 +16,16 @@ PyCharm Version 2023.2.1 (https://www.jetbrains.com/pycharm/download/)
 ```sh
   myenv\Scripts\activate
 ```
+4. Install project dependencies on your project:
+Pandas: You can install it using pip
+  ```bash
+  pip install pandas
+  ```
+Jsonlines
+  ```bash
+  pip install jsonlines
+  ```
+5. To generate the output files run:
+```
+./generator.sh
+```
