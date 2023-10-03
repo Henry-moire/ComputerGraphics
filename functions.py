@@ -2,22 +2,37 @@ import json
 import pandas as pd
 import glob
 import jsonlines
+import logging
 
-'''
+#Create a file for logging
+logging.basicConfig(filename = "logfile.log", format = '%(asctime)s %(message)s', filemode = 'w')
+
+#Create logger object
+logger = logging.getLogger()
+
+# Setting the threshold of logger to DEBUG
+logger.setLevel(logging.DEBUG)
+
+"""
 Function to import the dataset
-'''
+"""
 def import_dataset():
     json_files = ""
     '''
     File path containing for the directory all the JSONL files
     '''
     jsonl_files = glob.glob('amazon-massive-dataset/data/*.jsonl')
+    logging.info("Successfully imported the dataset")
     return jsonl_files
 
-'''
+"""
 Function to generate a spreadsheet grouped by language
-'''
+"""
 def group_language(data_files):
+    """
+    Args:
+        data_files: The variable containing the jsonl files.
+    """
     '''
     Initializing an empty list to store data from data folder
     '''
@@ -50,12 +65,11 @@ def group_language(data_files):
     Save the Excel file
     '''
     excel_writer._save()
-    print('Excel file generated successfully.')
+    logging.info("Excel file generated successfully.")
 
-'''
+"""
 Function to filter a JSONL file by a specific value in a column and write the filtered data to a new JSONL file
-'''
-
+"""
 def filter_jsonl_by_column(input_file, output_file, filter_column, filter_value):
     """
     Args:
@@ -78,4 +92,5 @@ def filter_jsonl_by_column(input_file, output_file, filter_column, filter_value)
     with open(output_file, "w") as outfile:
         for data in filtered_data:
             outfile.write(json.dumps(data) + "\n")
-
+    
+    logging.info("Successfully created filtered json file.")
