@@ -3,6 +3,6 @@ This project's goal is to efficiently process a large dataset by creating langua
 # Prerequisites
 Python Version 3.12.0 (https://www.python.org/downloads/)
 
-PyCharm Version 2023.2.1
+PyCharm Version 2023.2.1 (https://www.jetbrains.com/pycharm/download/)
 # Installation
 
