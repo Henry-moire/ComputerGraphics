@@ -1,7 +1,6 @@
 import json
 import pandas as pd
 import glob
-import jsonlines
 import logging
 
 
