@@ -21,7 +21,11 @@ Pandas: You can install it using pip
   ```bash
   pip install pandas
   ```
-Jsonlines
+Glob
   ```bash
-  pip install jsonlines
+  pip install glob2
+  ```
+Logging
+  ```bash
+  pip install logging
   ```
