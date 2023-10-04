@@ -25,7 +25,3 @@ Jsonlines
   ```bash
   pip install jsonlines
   ```
-5. To generate the output files run:
-```
-./generator.sh
-```
