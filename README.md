@@ -12,7 +12,7 @@ PyCharm Version 2023.2.1 (https://www.jetbrains.com/pycharm/download/)
 ```sh
   py -m venv myenv
 ```
-3. Activate your virtual environent:
+3. Activate your virtual environment:
 ```sh
   myenv\Scripts\activate
 ```
