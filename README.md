@@ -16,7 +16,7 @@ PyCharm Version 2023.2.1 (https://www.jetbrains.com/pycharm/download/)
 ```sh
   myenv\Scripts\activate
 ```
-4. Install project dependencies on your project:
+4. Install project dependencies on your project:  
 Pandas: You can install it using pip
   ```bash
   pip install pandas
