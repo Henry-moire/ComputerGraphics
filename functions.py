@@ -4,13 +4,13 @@ import glob
 import logging
 
 
-#Create a file for logging
+"""Create a file for logging"""
 logging.basicConfig(filename = "logfile.log", format = '%(asctime)s %(message)s', filemode = 'w')
 
-#Create logger object
+""" Create logger object"""
 logger = logging.getLogger()
 
-# Setting the threshold of logger to DEBUG
+""" Setting the threshold of logger to DEBUG"""
 logger.setLevel(logging.DEBUG)
 
 
@@ -18,9 +18,10 @@ logger.setLevel(logging.DEBUG)
 Function to import the dataset
 """
 def import_dataset():
-    '''
+
+    """
     File path containing the directory all the JSONL files
-    '''
+    """
     jsonl_files = glob.glob('amazon-massive-dataset/data/*.jsonl')
 
     logging.info("Successfully imported the dataset")
@@ -34,13 +35,13 @@ def group_language(data_files):
     Args:
         data_files: The variable containing the jsonl files.
     """
-    '''
+    """
     Initializing an empty list to store data from data folder
-    '''
+    """
     data = []
-    '''
-    This function takes a list of JSONL file paths as input and loads them into a dataframe a dataframe
-    '''
+
+
+    """ This function takes a list of JSONL file paths as input and loads them into a dataframe a dataframe"""
     for jsonl_file in data_files:
         with open(jsonl_file, 'r', encoding='utf-8') as file:
             for line in file:
@@ -48,17 +49,17 @@ def group_language(data_files):
                 data.append(record)
     
     df = pd.DataFrame(data)
-    '''
+    """
     Create an Excel writer object to save the data to an Excel file
-    '''
+   """
     excel_writer = pd.ExcelWriter('en-xx.xlsx', engine='openpyxl')
-    '''
+    """
     Group the data by 'locale' and iterate over each language
-    '''
+    """
     for lang, lang_df in df.groupby('locale'):
-        '''
-        Save the data to the Excel sheet named with the language code
-        '''
+        
+        """ Save the data to the Excel sheet named with the language code """
+        
         lang_df[['id', 'utt', 'annot_utt']].to_excel(excel_writer, sheet_name=lang, index=False)
     
     excel_writer._save()
