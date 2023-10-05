@@ -9,7 +9,7 @@ Function to import the dataset
 def import_dataset():
     json_files = ""
     '''
-    File path containing for the directory all the JSONL files
+    File path containing the directory all the JSONL files
     '''
     jsonl_files = glob.glob('amazon-massive-dataset/data/*.jsonl')
     return jsonl_files
@@ -23,16 +23,14 @@ def group_language(data_files):
     '''
     data = []
     '''
-    Iterate over each JSONL file
+    This function takes a list of JSONL file paths as input and loads them into a dataframe a dataframe
     '''
     for jsonl_file in data_files:
         with open(jsonl_file, 'r', encoding='utf-8') as file:
             for line in file:
                 record = json.loads(line)
                 data.append(record)
-    '''
-    Create a DataFrame from the data
-    '''
+    
     df = pd.DataFrame(data)
     '''
     Create an Excel writer object to save the data to an Excel file
@@ -46,9 +44,7 @@ def group_language(data_files):
         Save the data to the Excel sheet named with the language code
         '''
         lang_df[['id', 'utt', 'annot_utt']].to_excel(excel_writer, sheet_name=lang, index=False)
-    '''
-    Save the Excel file
-    '''
+    
     excel_writer._save()
     print('Excel file generated successfully.')
 
