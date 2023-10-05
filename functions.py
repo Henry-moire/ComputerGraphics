@@ -18,7 +18,6 @@ logger.setLevel(logging.DEBUG)
 Function to import the dataset
 """
 def import_dataset():
-    json_files = ""
     '''
     File path containing for the directory all the JSONL files
     '''
